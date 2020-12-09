@@ -19,7 +19,8 @@ export type Ticket = {
 };
 
 function randomDelay() {
-  return Math.random() * 4000;
+  // return Math.random() * 4000;
+  return Math.random() * 1;
 }
 
 export class BackendService {

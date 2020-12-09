@@ -1,5 +1,6 @@
 import React from 'react'
 import './Ticket.css'
+import {Link} from 'react-router-dom'
 
 interface TicketProps {
   id: number;
@@ -38,15 +39,17 @@ const Ticket = ({ id, description, assigneeId, completed, names, setTickets, tic
     setTickets(updateTickets)
   }
 
+  const ticketStatus = status()
+
   return (
     <div className='container'>
-      <button>View</button>
+      <Link to={{ pathname: "/details", state: { id: {id}, description: {description}, completed: {ticketStatus}, name:{name}, assigneeId:{assigneeId}} }}>Details</Link>
       {/* <input placeholder='enter name' onChange={(e) => {setAssign(e.target.value)}}></input> */}
       {/* <button onClick={() => updateAssign()}>Assign</button> */}
       <button onClick={() => updateCompletion()}>Mark Complete</button>
       <p>{id}</p>
       <p>{name}</p>
-      <p>{status()}</p>
+      <p>{ticketStatus}</p>
       <p>{description}</p>
     </div>
   )

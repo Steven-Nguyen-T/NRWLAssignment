@@ -15,7 +15,7 @@ const Filter = ({ tickets, setFiltered, filtered, setAppliedFilters, appliedFilt
   return (
     <div>
       <StatusFilter appliedFilters={appliedFilters} filtered={filtered} tickets={tickets} setFiltered={setFiltered} setAppliedFilters={setAppliedFilters}/>
-      <PersonFilter names={names}/>
+      <PersonFilter names={names} appliedFilters={appliedFilters} setAppliedFilters={setAppliedFilters}/>
       <h1>Filter</h1>
     </div>
   )

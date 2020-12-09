@@ -1,9 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Details() {
+// interface DetailsProps {
+//   props: any;
+// }
+
+function Details( props:any ) {
+  console.log(props.location.state)
+  const {name, description, assigneeId, completed, id} = props.location.state
   return (
     <div>
-      <p>Details</p>
+      <p>{name.name}</p>
+      <p>{description.description}</p>
+      <p>{assigneeId.assigneeId}</p>
+      <p>{completed.ticketStatus}</p>
+      <p>{id.id}</p>
+      <Link to={{pathname: '/'}}>Go back</Link>
     </div>
   )
 }

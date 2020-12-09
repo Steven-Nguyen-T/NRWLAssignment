@@ -2,6 +2,8 @@ import React from 'react'
 
 interface PersonFilterProps {
   names: any;
+  appliedFilters: any;
+  setAppliedFilters: any;
 }
 
 const PersonFilter = ({names}: PersonFilterProps) => {
@@ -9,8 +11,8 @@ const PersonFilter = ({names}: PersonFilterProps) => {
   return (
     <div>
       <p></p>
-      {names.map((name:any) => {
-        return name.name
+      {names.map((name:any, i:any) => {
+        return <button key={i}>{name.name}</button>
       })}
     </div>
   )
