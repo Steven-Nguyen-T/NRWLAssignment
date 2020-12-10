@@ -14,9 +14,11 @@ interface FilterProps {
 const Filter = ({ tickets, setFiltered, filtered, setAppliedFilters, appliedFilters, names }: FilterProps) => {
   return (
     <div>
-      <StatusFilter appliedFilters={appliedFilters} filtered={filtered} tickets={tickets} setFiltered={setFiltered} setAppliedFilters={setAppliedFilters}/>
-      <PersonFilter names={names} appliedFilters={appliedFilters} setAppliedFilters={setAppliedFilters}/>
       <h1>Filter</h1>
+      <h2>Status Filter</h2>
+      <StatusFilter appliedFilters={appliedFilters} filtered={filtered} tickets={tickets} setFiltered={setFiltered} setAppliedFilters={setAppliedFilters}/>
+      <h2>Person Filter</h2>
+      <PersonFilter setAppliedFilters={setAppliedFilters} appliedFilters={appliedFilters} tickets={tickets} names={names}/>
     </div>
   )
 }

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 // }
 
 function Details( props:any ) {
-  console.log(props.location.state)
   const {name, description, assigneeId, completed, id} = props.location.state
   return (
     <div>

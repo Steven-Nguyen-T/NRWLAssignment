@@ -20,14 +20,20 @@ const NewTicket = ({ tickets, setTickets, setNewTicketModal, names }: TicketProp
   }
 
   const addTicket = () => {
-    const newTickets = tickets.slice()
-    newTickets.push({
+    tickets.push({
       id: tickets.length,
       description: description,
       assigneeId: getIdFromName(),
       completed: false});
-    setTickets(newTickets);
+    setTickets(tickets);
   }
+
+  // const findName = () => {
+  //   for (let i = 0; i < names.length; i++) {
+  //     if (names[i].id)
+  //   }
+  //   names.push({id: 110 + names.length, 'name': name})
+  // }
 
   return (
     <div>

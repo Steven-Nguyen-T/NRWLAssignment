@@ -21,10 +21,18 @@ const StatusFilter = ({ tickets, setFiltered, filtered, setAppliedFilters, appli
     setAppliedFilters(newAppliedFilters)
   }
 
+  const resetFilter = () => {
+    const newAppliedFilters = {...appliedFilters}
+    newAppliedFilters['completed'] = '';
+    newAppliedFilters['assignee'] = ''
+    setAppliedFilters(newAppliedFilters)
+  }
+
   return (
     <div>
       <button onClick={() => completedButton()}> Completed</button>
       <button onClick={() => notCompletedButton()}>Not Completed</button>
+      <button onClick={() => resetFilter()}>Reset Filter</button>
     </div>
   )
 }

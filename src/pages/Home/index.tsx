@@ -20,6 +20,7 @@ function Home({ backend }: AppProps) {
   const [newTicketModal, setNewTicketModal] = useState(false)
   // The backend returns observables, but you can convert to promises if
   // that is easier to work with. It's up to you.
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await backend.tickets().toPromise();
@@ -29,12 +30,6 @@ function Home({ backend }: AppProps) {
       setFiltered(result)
     };
     fetchData();
-
-    // Example of use observables directly
-    // const sub = backend.tickets().subscribe(result => {
-    //   setTickets(result);
-    // });
-    // return () => sub.unsubscribe(); // clean up subscription
   }, [backend]);
 
   useEffect(() => {
@@ -55,6 +50,16 @@ function Home({ backend }: AppProps) {
       setFiltered(arr)
     } else {
       setFiltered(tickets)
+    }
+    if (appliedFilters.assignee) {
+      const newArr = []
+      for (let i = 0; i < tickets.length; i++) {
+        if (tickets[i].assigneeId === parseInt(appliedFilters.assignee)) {
+          newArr.push(tickets[i])
+        }
+        console.log('filtered',tickets[i])
+      }
+      setFiltered(newArr)
     }
   }, [appliedFilters, tickets])
 
